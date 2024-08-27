@@ -27,7 +27,7 @@ $("#div_ethalEqAction").sortable({axis: "y", cursor: "move", items: ".ethalEqAct
 
 $('body').on( 'click','.bt_selectCmdExpression', function() {
     var el = $(this).closest('.input-group').find('.eqLogicAttr');
-    jeedom.cmd.getSelectModal({cmd: {type: ''},eqLogic: {eqType_name : ''}}, function (result) {
+    jeedom.cmd.getSelectModal({cmd: {type: 'info'}}, function (result) {
          el.value(result.human);
     });
 });
@@ -212,29 +212,39 @@ function addCmdToTable(_cmd) {
     if (!isset(_cmd.configuration)) {
         _cmd.configuration = {};
     }
-    var tr = '<tr class="cmd" data-cmd_id="' + init(_cmd.id) + '">';
-    tr += '<td>';
-    tr += '<span class="cmdAttr" data-l1key="id" style="display:none;"></span>';
-    tr += '<input class="cmdAttr form-control input-sm" data-l1key="name" placeholder="{{Nom}}">';
-    tr += '</td>';
+    var tr = '<tr class="cmd" data-cmd_id="' + init(_cmd.id) + '">'
+    tr += '<td class="hidden-xs">'
+    tr += '<span class="cmdAttr" data-l1key="id"></span>'
+    tr += '</td>'
+    tr += '<td>'
+    tr += '<div class="input-group">'
+    tr += '<input class="cmdAttr form-control input-sm roundedLeft" data-l1key="name" placeholder="{{Nom de la commande}}">'
+    tr += '<span class="input-group-btn"><a class="cmdAction btn btn-sm btn-default" data-l1key="chooseIcon" title="{{Choisir une icône}}"><i class="fas fa-icons"></i></a></span>'
+    tr += '<span class="cmdAttr input-group-addon roundedRight" data-l1key="display" data-l2key="icon" style="font-size:19px;padding:0 5px 0 0!important;"></span>'
+    tr += '</div>'
+    tr += '<select class="cmdAttr form-control input-sm" data-l1key="value" style="display:none;margin-top:5px;" title="{{Commande info liée}}">'
+    tr += '<option value="">{{Aucune}}</option>'
+    tr += '</select>'
+    tr += '</td>'
     tr += '<td>';
     tr += '<span class="cmdAttr" data-l1key="type"></span>';
     tr += '<br/>';
     tr += '<span class="cmdAttr" data-l1key="subType"></span>';
     tr += '</td>';
     tr += '<td>';
-    tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr checkbox-inline" data-l1key="isVisible" checked/>{{Afficher}}</label></span> ';
-    if (_cmd.subType == 'numeric') {
-        tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr checkbox-inline" data-l1key="isHistorized" checked/>{{Historiser}}</label></span> ';
-    }
+    tr += '<label class="checkbox-inline"><input type="checkbox" class="cmdAttr" data-l1key="isVisible" checked/>{{Afficher}}</label> '
+    tr += '<label class="checkbox-inline"><input type="checkbox" class="cmdAttr" data-l1key="isHistorized" checked/>{{Historiser}}</label> '
     tr += '</td>';
     tr += '<td>';
-    if (is_numeric(_cmd.id)) {
-        tr += '<a class="btn btn-default btn-xs cmdAction" data-action="configure"><i class="fa fa-cogs"></i></a> ';
-        tr += '<a class="btn btn-default btn-xs cmdAction" data-action="test"><i class="fa fa-rss"></i> {{Tester}}</a>';
-    }
+    tr += '<span class="cmdAttr" data-l1key="htmlstate"></span>';
     tr += '</td>';
-    tr += '</tr>';
+    tr += '<td>'
+    if (is_numeric(_cmd.id)) {
+      tr += '<a class="btn btn-default btn-xs cmdAction" data-action="configure"><i class="fas fa-cogs"></i></a> '
+      tr += '<a class="btn btn-default btn-xs cmdAction" data-action="test"><i class="fas fa-rss"></i> {{Tester}}</a>'
+    }
+    tr += '<i class="fas fa-minus-circle pull-right cmdAction cursor" data-action="remove" title="{{Supprimer la commande}}"></i></td>'
+    tr += '</tr>'
     $('#table_cmd tbody').append(tr);
     $('#table_cmd tbody tr:last').setValues(_cmd, '.cmdAttr');
     if (isset(_cmd.type)) {
