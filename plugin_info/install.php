@@ -16,20 +16,20 @@
  */
 require_once dirname(__FILE__) . '/../../../core/php/core.inc.php';
 
-function ethalsurveillance_install() {
+function ethalSurveillanceIsBack_install() {
 
 }
 
-function ethalsurveillance_update() {
+function ethalSurveillanceIsBack_update() {
 
-	foreach (eqLogic::byType('ethalsurveillance') as $ethalsurveillance) {
-		$ethalsurveillance->save();
+	foreach (eqLogic::byType('ethalSurveillanceIsBack') as $ethalSurveillanceIsBack) {
+		$ethalSurveillanceIsBack->save();
 	}
 
 }
 
-function ethalsurveillance_remove() {
-    
+function ethalSurveillanceIsBack_remove() {
+
 }
 
 ?>

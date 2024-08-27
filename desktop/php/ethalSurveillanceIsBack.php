@@ -2,7 +2,7 @@
 if (!isConnect('admin')) {
 	throw new Exception('{{401 - Accès non autorisé}}');
 }
-$plugin = plugin::byId('ethalsurveillance');
+$plugin = plugin::byId('ethalSurveillanceIsBack');
 sendVarToJS('eqType', $plugin->getId());
 $eqLogics = eqLogic::byType($plugin->getId());
 
@@ -31,7 +31,7 @@ $date = array(
 
     <div class="col-lg-10 col-md-9 col-sm-8 eqLogicThumbnailDisplay" style="border-left: solid 1px #EEE; padding-left: 25px;">
     <legend><i class="fa fa-cog"></i> {{Gestion}}</legend>
-    <div class="eqLogicThumbnailContainer">    
+    <div class="eqLogicThumbnailContainer">
       <div class="cursor eqLogicAction" data-action="add" style="text-align: center; background-color : #ffffff; height : 200px;margin-bottom : 10px;padding : 5px;border-radius: 2px;width : 160px;margin-left : 10px;" >
         <i class="fa fa-plus-circle" style="font-size : 6em;color:#94ca02;"></i>
         <br>
@@ -40,7 +40,7 @@ $date = array(
     </div>
     <legend><i class="fa fa-table"></i> {{Mes equipements à surveiller}}</legend>
     <input class="form-control" placeholder="{{Rechercher}}" style="margin-bottom:4px;" id="in_searchEqlogic" />
-    <div class="eqLogicThumbnailContainer">        
+    <div class="eqLogicThumbnailContainer">
     <?php
 foreach ($eqLogics as $eqLogic) {
     $opacity = ($eqLogic->getIsEnable()) ? '' : jeedom::getConfiguration('eqLogic:style:noactive');
@@ -132,13 +132,13 @@ foreach (jeeObject::all() as $jeeObject) {
             <div class="cmdequipementtype analogique" style="display: none;">
                 <div class="col-sm-4" >
                     <label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="general" />{{Compteur Général}}</label>
-                </div> 
-            </div> 
+                </div>
+            </div>
             <div class="cmdequipementtype logique" style="display: none;">
                 <div class="col-sm-4" >
                     <label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="inverse" />{{Inverser}}</label>
-                </div> 
-            </div> 
+                </div>
+            </div>
         </div>
         <div class="cmdequipementtype analogique general" style="display: none;">
             <div class="form-group">
@@ -573,7 +573,7 @@ foreach (jeeObject::all() as $jeeObject) {
 <div class="tab-pane" id="actiontab">
     <br/>
     <a class='btn btn-success btn-xs pull-right' id="btn_addethalEqAction"><i class="fa fa-plus-circle"></i> {{Ajouter une action}}</a>
-    <br/><br/>    
+    <br/><br/>
     <form class="form-horizontal">
         <div id="div_ethalEqAction"></div>
     </form>
@@ -590,5 +590,5 @@ foreach (jeeObject::all() as $jeeObject) {
 </div>
 
 
-<?php include_file('desktop', 'ethalsurveillance', 'js', 'ethalsurveillance');?>
+<?php include_file('desktop', 'ethalSurveillanceIsBack', 'js', 'ethalSurveillanceIsBack');?>
 <?php include_file('core', 'plugin.template', 'js');?>

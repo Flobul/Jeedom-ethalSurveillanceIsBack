@@ -33,20 +33,20 @@ sendVarToJs('eq_id', init('eq_id'));
                 <?php
                 $allObject = jeeObject::buildTree();
                 foreach ($allObject as $jeeObject) {
-                    if ($jeeObject->getIsVisible() == 1 && count($jeeObject->getEqLogic(true, true, 'ethalsurveillance')) > 0) {
+                    if ($jeeObject->getIsVisible() == 1 && count($jeeObject->getEqLogic(true, true, 'ethalSurveillanceIsBack')) > 0) {
                         foreach ($jeeObject>getEqLogic() as $eqLogic) {
                             $margin = 5 ;
-                            if ($eqLogic->getEqType_name() == 'ethalsurveillance' && $eqLogic->getIsEnable()) {
+                            if ($eqLogic->getEqType_name() == 'ethalSurveillanceIsBack' && $eqLogic->getIsEnable()) {
                                 if ($eqLogic->getId() == init('eq_id')) {
-                                    echo '<li class="cursor li_object active" ><a href="index.php?v=d&m=ethalsurveillance&p=panel&eq_id=' . $eqLogic->getId() . '" style="position:relative;left:5 px;">' . $eqLogic->getHumanName(true) . '</a></li>';
+                                    echo '<li class="cursor li_object active" ><a href="index.php?v=d&m=ethalSurveillanceIsBack&p=panel&eq_id=' . $eqLogic->getId() . '" style="position:relative;left:5 px;">' . $eqLogic->getHumanName(true) . '</a></li>';
                                 }else{
-                                    echo '<li class="cursor li_object" ><a href="index.php?v=d&m=ethalsurveillance&p=panel&eq_id=' . $eqLogic->getId() . '" style="position:relative;left:5 px;">' . $eqLogic->getHumanName(true) . '</a></li>';
+                                    echo '<li class="cursor li_object" ><a href="index.php?v=d&m=ethalSurveillanceIsBack&p=panel&eq_id=' . $eqLogic->getId() . '" style="position:relative;left:5 px;">' . $eqLogic->getHumanName(true) . '</a></li>';
                                 }
                             }
                         }
                     }
                 }
-                ?>               
+                ?>
            </ul>
        </div>
     </div>
@@ -61,7 +61,7 @@ sendVarToJs('eq_id', init('eq_id'));
                             <input id="in_startDate" class="form-control input-sm in_datepicker" style="width: 150px;" value="<?php echo $date['start'] ?>"/>
                         </div>
                         <div class = "form-group">
-                            <label for = "in_endDate" style="font-weight: normal;">{{Au}}</label> 
+                            <label for = "in_endDate" style="font-weight: normal;">{{Au}}</label>
                             <input id="in_endDate" class="form-control input-sm in_datepicker" style="width: 150px;" value="<?php echo $date['end'] ?>"/>
                         </div>
                         <div class = "form-group">
@@ -75,7 +75,7 @@ sendVarToJs('eq_id', init('eq_id'));
                             </select>
                         </div>
                     </form>
-                </span> 
+                </span>
             </legend>
         </div>
         <div class="row">
@@ -90,4 +90,4 @@ sendVarToJs('eq_id', init('eq_id'));
 
 </div>
 
-<?php include_file('desktop', 'cumul', 'js', 'ethalsurveillance');?>
+<?php include_file('desktop', 'cumul', 'js', 'ethalSurveillanceIsBack');?>

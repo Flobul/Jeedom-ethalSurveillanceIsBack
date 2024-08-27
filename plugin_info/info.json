@@ -1,21 +1,38 @@
 {
-	"id" : "ethalsurveillance",
-	"name" : "Surveillance Equipement",
-	"description" : "Surveillance de l'activité d'un équipement par une commande d'état ou une commande analogique (puissance, température, ...). Il remonte (i.e. commande) : une alarme fonction d'un temps min ou max, ou d'une heure prévue de l'activité, un code d'alarme, le temps de l'activité, l'heure où l'équipement est passé actif ou inactif, un compteur, un état, une représentation graphique du temps de d'activité disponible depuis un panel",
-	"licence" : "AGPL",
-	"author" : "ethal",
-	"require" : "3.0",
-	"category" : "monitoring",
-	"display" : "panel",
-	"installation" : "version 2.5",
-	"hasDependency" : false,
-	"hasOwnDeamon" : false,
-	"maxDependancyInstallTime" : 0,
-	"changelog" : "https://nextdom.github.io/plugin-ethalsurveillance/#language#/changelog",
-	"documentation" : "https://nextdom.github.io/plugin-ethalsurveillance/#language#/",
-	"link" : {
-		"forum":"https://www.nextdom.org/community/plugin-surveillance-equipement/"
-	},
-	"language" : ["fr_FR","en_US","de_DE","sp_SP","ru_RU","id_ID","it_IT"],
-	"compatibility" : ["Jeedomboard","Smart","RPI/RPI2","DIY"]
+  "id": "ethalSurveillanceIsBack",
+  "name": "Surveillance Equipement",
+  "description": {
+    "fr_FR": "Surveillance de l'activité d'un équipement par une commande d'état ou une commande analogique (puissance, température, ...). Il remonte (i.e. commande) : une alarme fonction d'un temps min ou max, ou d'une heure prévue de l'activité, un code d'alarme, le temps de l'activité, l'heure où l'équipement est passé actif ou inactif, un compteur, un état, une représentation graphique du temps de d'activité disponible depuis un panel"
+  },
+  "licence": "AGPL",
+  "author": "DomoFlo1",
+  "require": "4.4",
+  "category": "monitoring",
+  "display": "panel",
+  "hasDependency": false,
+  "hasOwnDeamon": false,
+  "maxDependancyInstallTime": 0,
+  "changelog": "https://nextdom.github.io/plugin-ethalsurveillance/#language#/changelog",
+  "documentation": "https://nextdom.github.io/plugin-ethalsurveillance/#language#/",
+  "link": {
+    "forum": "https://www.nextdom.org/community/plugin-surveillance-equipement/"
+  },
+  "language": [
+    "fr_FR",
+    "en_US",
+    "es_ES",
+    "pt_PT",
+    "de_DE",
+    "it_IT"
+  ],
+  "compatibility": [
+    "miniplus",
+    "smart",
+    "rpi",
+    "docker",
+    "diy",
+    "mobile",
+    "v4",
+    "atlas"
+  ]
 }

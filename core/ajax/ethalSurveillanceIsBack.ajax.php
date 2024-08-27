@@ -33,9 +33,9 @@ try {
 				ajax::success($return);
 			}
 
-			$ethalsurveillance = ethalsurveillance::byId(init('eqid'));
+			$ethalSurveillanceIsBack = ethalSurveillanceIsBack::byId(init('eqid'));
 
-			if (!is_object($ethalsurveillance)) {
+			if (!is_object($ethalSurveillanceIsBack)) {
 				throw new \Exception(__('Aucun equipement trouvé', __FILE__));
 			}
 			$date = array(
@@ -50,7 +50,7 @@ try {
 				$date['end'] = date('Y-m-d', strtotime('+1 days ' . date('Y-m-d')));
 			}
 
-			$cmdEquipement = $ethalsurveillance->getConfiguration('cmdequipement','');
+			$cmdEquipement = $ethalSurveillanceIsBack->getConfiguration('cmdequipement','');
 			$eqMasterId = cmd::byString($cmdEquipement)->getEqLogic_id();
 			$eqMaster = eqLogic::byId($eqMasterId);
 
@@ -58,12 +58,12 @@ try {
 				throw new \Exception(__('Equipement Master introuvable pour la comamnde: ', __FILE__) . $cmdEquipement);
 			}
 
-			if (!is_object($ethalsurveillance)) {
-				throw new \Exception(__('Equipement ethalsurveillance introuvable : ', __FILE__) . init('eqid'));
+			if (!is_object($ethalSurveillanceIsBack)) {
+				throw new \Exception(__('Equipement ethalSurveillanceIsBack introuvable : ', __FILE__) . init('eqid'));
 			}
 
-			if ($ethalsurveillance->getIsEnable() == 1 && $ethalsurveillance->getEqType_name() == 'ethalsurveillance') {
-				$return['eq'] = array('eqName' => $ethalsurveillance->getName(), 'htmlMaster' => $eqMaster->toHtml('dashboard'), 'html' => $ethalsurveillance->toHtml('dashboard'), 'ethCumulTps' => array_values($ethalsurveillance->ethCumulTps($date['start'], $date['end'])));
+			if ($ethalSurveillanceIsBack->getIsEnable() == 1 && $ethalSurveillanceIsBack->getEqType_name() == 'ethalSurveillanceIsBack') {
+				$return['eq'] = array('eqName' => $ethalSurveillanceIsBack->getName(), 'htmlMaster' => $eqMaster->toHtml('dashboard'), 'html' => $ethalSurveillanceIsBack->toHtml('dashboard'), 'ethCumulTps' => array_values($ethalSurveillanceIsBack->ethCumulTps($date['start'], $date['end'])));
 
 			}
 

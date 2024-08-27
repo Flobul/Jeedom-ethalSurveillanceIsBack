@@ -34,7 +34,7 @@ ethGetDataAndDrawCurve(eq_id,'','','');
 function ethGetDataAndDrawCurve(eq_id,_dateStart,_dateEnd,_grouping) {
     $.ajax({
         type: 'POST',
-        url: 'plugins/ethalsurveillance/core/ajax/ethalsurveillance.ajax.php',
+        url: 'plugins/ethalSurveillanceIsBack/core/ajax/ethalSurveillanceIsBack.ajax.php',
         data: {
             action: 'ethGetData',
             eqid: eq_id,
@@ -50,9 +50,9 @@ function ethGetDataAndDrawCurve(eq_id,_dateStart,_dateEnd,_grouping) {
                 $('#div_alert').showAlert({message: data.result, level: 'danger'});
                 return;
             }
-            if (data.result.eq.eqName.length == 0) { 
+            if (data.result.eq.eqName.length == 0) {
                 return;
-            }   
+            }
             $('#div_displayEquipement').empty();
             $('#div_displayEquipementMaster').empty();
             $('#div_graphics_tpsfct').empty();
@@ -85,8 +85,8 @@ function ethGetDataAndDrawCurve(eq_id,_dateStart,_dateEnd,_grouping) {
                 data: data.result.eq.ethCumulTps,
                 type: 'column',
                 });
-            
-            
+
+
             drawCurve('div_graphic_tpsfct', series_tpsfct,tooltip_tpsfct);
 
             $('#div_displayEquipement').append(data.result.eq.html);
@@ -96,9 +96,9 @@ function ethGetDataAndDrawCurve(eq_id,_dateStart,_dateEnd,_grouping) {
                 rowHeight: 50,
                 gutter : 2,
             });
-            
-            $('#div_displayEquipementMaster').append(data.result.eq.htmlMaster);          
-            positionEqLogic();            
+
+            $('#div_displayEquipementMaster').append(data.result.eq.htmlMaster);
+            positionEqLogic();
             $('#div_displayEquipementMaster').packery({
                 itemSelector: ".eqLogic-widget",
                 columnWidth: 40,
@@ -195,5 +195,3 @@ function drawCurve(_el, _serie,_tooltip) {
         series: _serie
     });
 }
-
-

@@ -1,8 +1,8 @@
 {
-    "plugins\/ethalsurveillance\/plugin_info\/info.json": {
+    "plugins\/ethalSurveillanceIsBack\/plugin_info\/info.json": {
         "Surveillance du fonctionnement d'un equipement": "Motorización de funcionamiento de un dispositivo"
     },
-    "plugins\/ethalsurveillance\/desktop\/php\/panel.php": {
+    "plugins\/ethalSurveillanceIsBack\/desktop\/php\/panel.php": {
         "Surv. Equipement": "Surv. Dispositivo",
         "Rechercher" : "Buscar",
         "Ok": "Ok",
@@ -10,9 +10,9 @@
         "Cumul par semaine" : "Acumulación por semana",
         "Cumul par mois" : "Acumulación por mes",
         "Information de surveillance" : "Información de monitorización",
-        "Equipement surveillé" : "Dispositivo monitorizado"        
+        "Equipement surveillé" : "Dispositivo monitorizado"
     },
-    "plugins\/ethalsurveillance\/desktop\/php\/ethalsurveillance.php": {
+    "plugins\/ethalSurveillanceIsBack\/desktop\/php\/ethalSurveillanceIsBack.php": {
         "Configuration": "Configuración",
         "Ajouter": "Añadir",
         "Rechercher" : "Buscar",
@@ -54,12 +54,12 @@
         "Dimanche":"Domingo",
         "Code Alarme":"Código alarma"
     },
-    "plugins\/ethalsurveillance\/desktop\/js\/ethalsurveillance.js": {
+    "plugins\/ethalSurveillanceIsBack\/desktop\/js\/ethalSurveillanceIsBack.js": {
         "Tester": "Prueba",
         "Afficher": "Mostrar",
         "Historiser": "Historizar"
     },
-    "plugins\/ethalsurveillance\/core\/class\/ethalsurveillance.class.php": {
+    "plugins\/ethalSurveillanceIsBack\/core\/class\/ethalSurveillanceIsBack.class.php": {
         "Défaut": "Default",
         "Alarme": "Alarma",
         "Temps Actif(H:M:S)":"Tiempo Activo(H:M:S)",
